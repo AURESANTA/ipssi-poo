@@ -2,7 +2,7 @@
 
 namespace Ipssi\Evaluation;
 
-class Useless
+class Booking 
 {
 
 }
