@@ -5,8 +5,8 @@ namespace Ipssi\Evaluation;
 class Member
 {
 
-    private $wantedBookName;
-    private $bookID;
+    private $name;
+    private $bookings;
 
     public function __construct(string $name, array $bookings=[])
     {
@@ -19,9 +19,9 @@ class Member
         $library->giveBookTo($this, $this->bookings);
     }
 
-    public function setBooking(int $bookID): self
+    public function setBooking(Book $title, $copies): self
     {
-        $this->bookID = $bookID;
+        $this->bookings = $bookings;
 
         return $this;
     }

@@ -2,8 +2,6 @@
 
 namespace Ipssi\Evaluation;
 
-use Ipssi\Evaluation\Exceptions\NotALibrary;
-
 class Library
 {
     private $books;
@@ -12,20 +10,20 @@ class Library
     {
         foreach ($books as $book) {
             if (false === $book instanceof Book) {
-                throw new NotABookException($book);
+                throw new \Exception('Référence non connue !');
             }
         }
 
         $this->books = $books;
     }
 
-    public function provideBookTo(Member $member, string $title, int $copies)
+    public function giveBookTo(Member $member, string $title, int $copies)
     {
         foreach ($this->books as $book) {
-            $bookID = $book->isBookable($title, $copies);
+            $availableBook = $book->isAvailable();
 
-            if ($bookID !== null) {
-                $member->setRoomNumber($bookID);
+            if ($availableBook !== null) {
+                $member->setBooking($availableBook);
                 break;
             }
         }

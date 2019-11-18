@@ -10,7 +10,7 @@ class Diviseur {
     public function __construct(int $index, int $diviseur)
     {
     
-        if(!is_int($diviseur) || !is_numeric($index)) {
+        if(!is_int($diviseur) || !is_int($index)) {
             throw new \Error('Entre un nombre bordel');
         }
 
